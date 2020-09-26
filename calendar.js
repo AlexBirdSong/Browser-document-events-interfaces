@@ -20,10 +20,15 @@ function getLocalDay(date) {
   }
 
 function createCalendar(elem, year, month){
-    let date = new Date(year, month, 3); 
+    let date = new Date(year, month); 
     let day = getLocalDay(date);
-
     elem.innerHTML="<tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr>"; 
+    for(let i=0;i<dayInMonth(date);i++){
+        elem.innerHTML+="<tr><td>"+ date.getDate() + "</td></tr>";
+        date.setDate(date.getDate()+1);
+    }
+   
+   
 }
 
 let elem = document.getElementById('cal');
