@@ -1,7 +1,20 @@
 'use strict'
 
-function createCalendar(elem, year, month){
+function getLocalDay(date) {
 
+    let day = date.getDay();
+  
+    if (day == 0) { // день недели 0 (воскресенье) в европейской нумерации будет 7
+      day = 7;
+    }
+  
+    return day;
+  }
+
+function createCalendar(elem, year, month){
+    let date = new Date(year, month, 3); 
+    let day = getLocalDay(date);
+    
     elem.innerHTML="<tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr>"; 
 }
 
