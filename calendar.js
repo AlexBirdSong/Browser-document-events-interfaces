@@ -4,7 +4,7 @@ function getLocalDay(date) {
 
     let day = date.getDay();
   
-    if (day == 0) { // день недели 0 (воскресенье) в европейской нумерации будет 7
+    if (day == 0) { // день недели (воскресенье будет 7)
       day = 7;
     }
   
@@ -20,17 +20,46 @@ function getLocalDay(date) {
   }
 
 function createCalendar(elem, year, month){
-    let date = new Date(year, month); 
-    let day = getLocalDay(date);
+    let date = new Date(year, month, 1);
+    let day;
+    let calendarString;
+
+    // создадим заголовок таблицы
     elem.innerHTML="<tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr>"; 
-    for(let i=0;i<dayInMonth(date);i++){
-        elem.innerHTML+="<tr><td>"+ date.getDate() + "</td></tr>";
-        date.setDate(date.getDate()+1);
+    
+    // заполним пустыми квадратиками дни прошлого месяца
+    let countVoidDay =  getLocalDay(date) - 1;
+    calendarString="<tr>"; 
+    for(let i=0;i<countVoidDay;i++){
+      calendarString+="<td> </td>";
+    }
+
+    // заполним дни текущего месяца  
+    for(let i=1;i<=dayInMonth(date);i++){
+      date = new Date(year, month, i); 
+      day = getLocalDay(date);
+      if (day!=7){
+        calendarString+="<td>"+ date.getDate() + "</td>";
+      }
+      else{
+        calendarString+="<td>"+ date.getDate() + "</td></tr><tr>";
+      }
+
     }
    
+    // заполним пустыми квадратиками дни следующего месяца
+    let dateNextMonth = new Date(year, month+1, 1);
+    countVoidDay = 8 -  getLocalDay(dateNextMonth);
+
+    for(let i=0;i<countVoidDay;i++){
+      calendarString+="<td> </td>";
+    }
+
+    calendarString+="</tr>";
+    elem.innerHTML+=calendarString;
    
 }
 
 let elem = document.getElementById('cal');
 
- createCalendar(elem, 2020, 9);
+ createCalendar(elem, 2020, 8);
