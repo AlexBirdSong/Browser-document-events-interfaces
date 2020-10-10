@@ -1,15 +1,28 @@
 'use strict'
- /**
-     * Позиционирует элемент elem относительно элемента anchor в соответствии со значением position.
-     *
-     * @param {Node} anchor     элемент, около которого позиционируется другой элемент
-     * @param {string} position одно из: top/right/bottom
-     * @param {Node} elem       элемент, который позиционируется
-     *
-     * Оба элемента elem и anchor должны присутствовать в документе
-     */
+
+
     function positionAt(anchor, position, elem) {
-        // ... ваш код ...
+      
+      
+    
+      let anchorCoords =  anchor.getBoundingClientRect();
+      
+      if (position == "bottom"){
+        elem.style.left = anchorCoords.left + "px";
+        elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";
+      }
+      else if (position == "top"){
+        elem.style.left = anchorCoords.left + "px";
+        elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
+      }
+      else if (position == "right"){
+        elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";
+        elem.style.top = anchorCoords.top + "px";
+      }
+    
+
+    
+      return elem;
       }
   
       /**
