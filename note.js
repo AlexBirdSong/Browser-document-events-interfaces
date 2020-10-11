@@ -1,11 +1,20 @@
 'use strict'
 
 
+function getCoords(elem) {
+  let box = elem.getBoundingClientRect();
+
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
+}
+
     function positionAt(anchor, position, elem) {
       
       
     
-      let anchorCoords =  anchor.getBoundingClientRect();
+      let anchorCoords =  getCoords(anchor);
       
       if (position == "bottom"){
         elem.style.left = anchorCoords.left + "px";
