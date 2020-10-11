@@ -6,7 +6,7 @@ function getCoords(elem) {
 
   return {
     top: box.top + pageYOffset,
-    left: box.left + pageXOffset
+    left: box.left + pageXOffset,
   };
 }
 
@@ -16,21 +16,31 @@ function getCoords(elem) {
     
       let anchorCoords =  getCoords(anchor);
       
-      if (position == "bottom"){
+      if (position == "bottom-out"){
         elem.style.left = anchorCoords.left + "px";
         elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";
       }
-      else if (position == "top"){
+      else if (position == "top-out"){
         elem.style.left = anchorCoords.left + "px";
         elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
       }
-      else if (position == "right"){
+      else if (position == "right-out"){
         elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";
         elem.style.top = anchorCoords.top + "px";
       }
-    
-
-    
+      else if (position == "top-in"){
+        elem.style.left = anchorCoords.left + "px";
+        elem.style.top = anchorCoords.top + "px";
+      }
+      else if (position == "right-in"){
+        elem.style.width = '150px';
+        elem.style.left = anchorCoords.left + anchor.offsetWidth - elem.offsetWidth + "px";
+        elem.style.top = anchorCoords.top + "px";
+      }
+      else if (position == "bottom-in"){
+        elem.style.left = anchorCoords.left + "px";
+        elem.style.top = anchorCoords.top + anchor.offsetHeight - elem.offsetHeight + "px";
+      }
       return elem;
       }
   
@@ -50,6 +60,9 @@ function getCoords(elem) {
       // test it
       let blockquote = document.querySelector('blockquote');
   
-      showNote(blockquote, "top", "note above");
-      showNote(blockquote, "right", "note at the right");
-      showNote(blockquote, "bottom", "note below");
+      showNote(blockquote, "top-out", "note above");
+      showNote(blockquote, "right-out", "note at the right");
+      showNote(blockquote, "bottom-out", "note below");
+      showNote(blockquote, "top-in", "note in");
+      showNote(blockquote, "right-in",  "note in at the right");
+      showNote(blockquote, "bottom-in",  "note below in");
