@@ -8,7 +8,7 @@
 
 <body>
 
-  <input type="button" id="hiderButton" value="Нажмите, чтобы спрятать текст" />
+  <input type="button" id="hiderButton" value="Нажмите, чтобы спрятать текст и кнопку" />
 
   <div id="text">Текст</div>
 
@@ -16,6 +16,7 @@
     let elem = document.getElementById('text');
     hiderButton.onclick = function() {
     elem.style.display = "none"; 
+    this.style.display = "none"; 
   };
   </script>
 
