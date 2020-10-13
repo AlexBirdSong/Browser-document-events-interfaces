@@ -8,9 +8,15 @@ ball.onload = function() {
     ballHeight = this.width;
     ballWidth = this.height;
 
-    let ballTopPosition = Math.floor((field.clientHeight-ballHeight)/2);
-    let ballLeftPosition = Math.floor((field.clientWidth-ballWidth)/2);
-    ball.style.marginTop = ballTopPosition+"px";
-    ball.style.marginLeft = ballLeftPosition+"px";
+    field.addEventListener('click', function(event) {
+      let xPosition = event.clientX;
+      let yPosition = event.clientY; 
+
+      let ballTopPosition = Math.floor((yPosition  - ballHeight));
+      let ballLeftPosition = Math.floor((xPosition  -ballWidth)); //field.clientWidth
+      ball.style.marginTop = ballTopPosition+"px";
+      ball.style.marginLeft = ballLeftPosition+"px";
+      //alert("x = " + xPosition + " y = " + yPosition + "x = " + ballTopPosition + " y = " + ballLeftPosition)
+    });
 
   }   
