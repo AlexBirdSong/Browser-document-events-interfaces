@@ -8,7 +8,7 @@
     span{
       color : green;
     }
-    #bottomTringle{
+    .bottomTringle{
       display : none;
     }
     .dropDownListText{
@@ -16,13 +16,19 @@
     }
     .dropDownList > ul {
       display : none;
+      
+    }
+    .dropDownList > ul > li{
+      padding-left: 30px;
+      
     }
   </style>
 </head>
 
 <body>
 
-  <div class="dropDownList"> <div class="dropDownListText"> <span id='rightTringle'>▶</span> <span id='bottomTringle'>▼</span>  Сладости (нажми меня)! </div>
+  <div class="dropDownList"> 
+    <div class="dropDownListText"> <span class='rightTringle'>▶</span> <span class='bottomTringle'>▼</span>  Сладости (нажми меня)! </div>
   <ul>
     <li>Пирожное</li>
     <li>Пончик</li>
@@ -31,20 +37,26 @@
 </div>  
 
   <script>
-    let elem = document.getElementsByClassName('dropDownListText');
-    let rightTringle = document.getElementsByClassName('rightTringle');
-    let bottomTringle = document.getElementsByClassName('bottomTringle');
+    let elem = document.getElementsByClassName('dropDownList')[0];
+    let rightTringle = document.getElementsByClassName('rightTringle')[0];
+    let bottomTringle = document.getElementsByClassName('bottomTringle')[0];
+    let ul = document.querySelector(".dropDownList > ul");
     let currTringle = 0;
     elem.onclick = function() {
+   
       if (currTringle == 0){
-        rightTringle.style.display = none;
+        rightTringle.style.display = "none";
+        bottomTringle.style.display = "inline ";
+        ul.style.display = "inline ";
         currTringle = 1;
       }
       else{
-        bottomTringle.style.display = none;
+        bottomTringle.style.display = "none";
+        rightTringle.style.display = "inline";
+        ul.style.display = "none ";
         currTringle = 0;
-      }
-      elem.style.color = "red";
+      };
+     
 
   };
   </script>
