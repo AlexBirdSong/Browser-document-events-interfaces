@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Создать раскрывающееся меню</title>
+  <meta charset="utf-8">
+  <style>
+    span{
+      color : green;
+    }
+    #bottomTringle{
+      display : none;
+    }
+    .dropDownListText{
+      cursor: pointer;
+    }
+    .dropDownList > ul {
+      display : none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dropDownList"> <div class="dropDownListText"> <span id='rightTringle'>▶</span> <span id='bottomTringle'>▼</span>  Сладости (нажми меня)! </div>
+  <ul>
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+</div>  
+
+  <script>
+    let elem = document.getElementsByClassName('dropDownListText');
+    let rightTringle = document.getElementsByClassName('rightTringle');
+    let bottomTringle = document.getElementsByClassName('bottomTringle');
+    let currTringle = 0;
+    elem.onclick = function() {
+      if (currTringle == 0){
+        rightTringle.style.display = none;
+        currTringle = 1;
+      }
+      else{
+        bottomTringle.style.display = none;
+        currTringle = 0;
+      }
+      elem.style.color = "red";
+
+  };
+  </script>
+
+</body>
+</html>
