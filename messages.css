@@ -29,4 +29,5 @@ p {
   border: none;
   background: transparent;
   cursor: pointer;
+  float : right;
 }
