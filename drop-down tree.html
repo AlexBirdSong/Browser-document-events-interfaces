@@ -5,23 +5,10 @@
   <title>Раскрывающееся дерево</title>
   <meta charset="utf-8">
   <style>
-    span{
-      color : green;
+    .hidden{
+      visibility: hidden;
     }
-    .bottomTringle{
-      display : none;
-    }
-    .dropDownListText{
-      cursor: pointer;
-    }
-    .dropDownList > ul {
-      display : none;
-      
-    }
-    .dropDownList > ul > li{
-      padding-left: 30px;
-      
-    }
+
   </style>
 </head>
 
@@ -67,28 +54,32 @@
  
 
   <script>
-    let elem = document.getElementsByClassName('dropDownList')[0];
-    let rightTringle = document.getElementsByClassName('rightTringle')[0];
-    let bottomTringle = document.getElementsByClassName('bottomTringle')[0];
-    let ul = document.querySelector(".dropDownList > ul");
-    let currTringle = 0;
-    elem.onclick = function() {
-   
-      if (currTringle == 0){
-        rightTringle.style.display = "none";
-        bottomTringle.style.display = "inline ";
-        ul.style.display = "inline ";
-        currTringle = 1;
-      }
-      else{
-        bottomTringle.style.display = "none";
-        rightTringle.style.display = "inline";
-        ul.style.display = "none ";
-        currTringle = 0;
-      };
-     
 
-  };
+let selectedTd;
+
+
+
+
+
+document.addEventListener('click',function(event){
+      let target = event.target; 
+
+      if (target.tagName != 'LI') return; 
+         
+          for (let i = 0; i < event.target.childNodes.length; i++) {
+            let node = event.target.childNodes[i];        
+            highlight(node);
+        }
+      });
+    
+
+function highlight(td) {
+  if (selectedTd) { // убрать существующую подсветку, если есть
+    selectedTd.classList.remove('hidden');
+  }
+  selectedTd = td;
+  selectedTd.classList.add('hidden'); // подсветить новый td
+}
   </script>
 
 </body>
