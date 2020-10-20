@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Раскрывающееся дерево</title>
+  <meta charset="utf-8">
+  <style>
+    span{
+      color : green;
+    }
+    .bottomTringle{
+      display : none;
+    }
+    .dropDownListText{
+      cursor: pointer;
+    }
+    .dropDownList > ul {
+      display : none;
+      
+    }
+    .dropDownList > ul > li{
+      padding-left: 30px;
+      
+    }
+  </style>
+</head>
+
+<body>
+
+ 
+    <ul class="tree" id="tree">
+      <li>Животные
+        <ul>
+          <li>Млекопитающие
+            <ul>
+              <li>Коровы</li>
+              <li>Ослы</li>
+              <li>Собаки</li>
+              <li>Тигры</li>
+            </ul>
+          </li>
+          <li>Другие
+            <ul>
+              <li>Змеи</li>
+              <li>Птицы</li>
+              <li>Ящерицы</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Рыбы
+        <ul>
+          <li>Аквариумные
+            <ul>
+              <li>Гуппи</li>
+              <li>Скалярии</li>
+            </ul>
+          </li>
+          <li>Морские
+            <ul>
+              <li>Морская форель</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+ 
+
+  <script>
+    let elem = document.getElementsByClassName('dropDownList')[0];
+    let rightTringle = document.getElementsByClassName('rightTringle')[0];
+    let bottomTringle = document.getElementsByClassName('bottomTringle')[0];
+    let ul = document.querySelector(".dropDownList > ul");
+    let currTringle = 0;
+    elem.onclick = function() {
+   
+      if (currTringle == 0){
+        rightTringle.style.display = "none";
+        bottomTringle.style.display = "inline ";
+        ul.style.display = "inline ";
+        currTringle = 1;
+      }
+      else{
+        bottomTringle.style.display = "none";
+        rightTringle.style.display = "inline";
+        ul.style.display = "none ";
+        currTringle = 0;
+      };
+     
+
+  };
+  </script>
+
+</body>
+</html>
