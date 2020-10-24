@@ -28,7 +28,25 @@
   </ul>
 
   <script>
-    // ...ваш код...
+    ul.onmousedown = function() {
+      return false;
+    };
+
+    addEventListener("click",function(event){
+      let target = event.target; 
+      if (target.tagName != 'LI') return; 
+
+
+      let liList = document.querySelectorAll('LI');
+     
+      for (let i = 0; i < liList.length; i++){
+        liList[i].classList.remove('selected');
+      }
+
+      target.classList.add('selected');
+    });
+
+ 
   </script>
 
 </body>
