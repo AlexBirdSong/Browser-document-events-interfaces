@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Добавьте пункт к выпадающему списку</title>
+  <meta charset="utf-8">
+  
+</head>
+
+<body>
+
+  <select id="genres">
+    <option value="rock">Рок</option>
+    <option value="blues" selected>Блюз</option>
+  </select>
+
+  <script>
+    let selectedOption = genres.selectedIndex;
+  alert(selectedOption); 
+
+   genres[genres.length]= new Option('Классика','classic',true, true);
+  </script>
+
+</body>
+</html>
