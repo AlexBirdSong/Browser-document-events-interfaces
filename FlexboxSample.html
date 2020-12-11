@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexbox</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;   
+    }
+    @media (min-width: 500px){
+
+    .container-1{
+            display: flex;
+            /* align-items: flex-start; позиция  сверху*/
+            /* align-items: flex-end; позиция  снизу*/
+            /* align-items: flex-center; позиция  по центру*/
+            /* flex-direction: column; положение в колонку */
+            /* flex-direction: row; положение в строку */
+        }
+    }
+
+    .container-2{
+        display: flex;
+        /* justify-content: flex-end; центрирование справа*/
+        /* justify-content: center;  центрирование по центру*/
+        /* justify-content: space-around;  центрирование по центру c отступами */
+        /* justify-content: space-between;  центрирование по центру c отступами */
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .container-1 div, .container-2 div{
+        padding: 10px;
+        border: 1px solid silver;
+    }
+
+    .box-1{
+        flex: 2;
+        order: 2;
+    }
+
+    .box-2{
+        flex: 2;
+        order: 1;
+    }
+
+    .box-3{
+        flex: 1;
+        order: 3;
+    }
+
+    .box{
+        flex-basis: 20%;
+    }
+
+</style>
+<body>
+   
+    <div class="container-1">
+        <div class="box-1">
+            <h3>Box 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                impedit alias sed debitis.</p>
+        </div>
+        <div class="box-2">
+            <h3>Box 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                impedit alias sed debitis.</p>   
+        </div>
+        <div class="box-3">
+            <h3>Box 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                impedit alias sed debitis.</p>   
+        </div>
+    </div>
+
+    <div class="container-2">
+            <div class="box">
+                <h3>Box 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                    minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                    impedit alias sed debitis.</p>
+            </div>
+            <div class="box">
+                <h3>Box 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                    minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                    impedit alias sed debitis.</p>   
+            </div>
+            <div class="box">
+                <h3>Box 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                    minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                    impedit alias sed debitis.</p>   
+            </div>
+            <div class="box">
+                    <h3>Box 4</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                        minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                        impedit alias sed debitis.</p>   
+                </div>
+                <div class="box">
+                        <h3>Box 5</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                            minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                            impedit alias sed debitis.</p>   
+                    </div>
+                    <div class="box">
+                            <h3>Box 6</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Sapiente officiis totam temporibus fugit quis ullam! Alias fugiat vel, 
+                                minima voluptates temporibus aperiam sed odio. Molestiae deserunt 
+                                impedit alias sed debitis.</p>   
+                        </div>
+        </div>
+</body>
+</html>
